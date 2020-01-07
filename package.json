@@ -1,0 +1,17 @@
+{
+  "name": "aplicacion-escritorio",
+  "version": "1.0.1",
+  "productName": "Productos de Vainilla",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "electron src/index.js",
+    "package-windows": "electron-packager . aplicacion-escritorio --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/iconw.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName='Vainilla Productos'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^7.1.7"
+  }
+}
