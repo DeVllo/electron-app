@@ -1,70 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Productos - Vainilla</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-</head>
-<body>
-    <div class="container p-4 text-center">
+    <title>Vainilla</title>
+    <!--
+<link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        <div class="btn btn-success" id="createNew"> Crear nuevo producto </div>
-    </br></hr></br>
-        <div class="row" id="productos"></div>
+    <!-- font awesome icons-->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;display=swap">
+    <link rel="stylesheet" type="text/css" href="css/form.css">
+
+</head>
+
+<body>
+
+    <!-- Asd-->
+
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right colorgradientt" id="sidebar-wrapper">
+            <div class="sidebar-heading">VainillaSunchales </div>
+            <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="sidebar-escritorio">Escritorio
+                    <i class="fa fa-desktop"></i> </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light"
+                    id="sidebar-configuracion">Configuración <i class="fa fa-cog"></i> </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="sidebar-productos">Productos <i
+                        class="fa fa-cubes"></i> </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="sidebar-clientes">Clientes <i
+                        class="fa fa-users"></i>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="sidebar-pedidos">Pedidos <i
+                        class="fa fa-book"></i></a>
+                <a href="#" class="list-group-item list-group-item-action bg-light" id="btnSalir">Salir <i
+                        class="fa fa-door-open"></i></a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle" data-toggle="tooltip" data-placement="bottom"
+                    title="Cerrar/Abrir menú"><i class="fa fa-bars"></i></button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container-fluid" id="pagina-escritorio">
+                <!-- Contenido de cards y eso-->
+
+                <div class="container p-4 text-center">
+                    <div class="btn btn-success" id="createNew" data-toggle="tooltip" data-placement="bottom"
+                        title="Se abrirá una nueva ventana"> Crear nuevo producto </div>
+
+                    </br></hr></br>
+                </div>
+
+            </div>
+            <!-- Pagina de  Configuracion -->
+            <div class="container-fluid text-center" id="pagina-configuracion" style="display: none;">
+                    <!-- -->
+                    <div class="container-fluid text-center">
+                    <form autocomplete="off">
+                        <div id="focus"></div>
+                        <h1>Your info</h1>
+                        <input type="text" half placeholder="First name" autocomplete="no">
+                        <input type="text" half placeholder="Last name" autocomplete="no">
+                        <input type="text" placeholder="Address" autocomplete="no">
+                        <input type="text" half placeholder="Zip code" autocomplete="no">
+                        <input type="text" half placeholder="City" autocomplete="no">
+                        <input type="text" placeholder="Mail" autocomplete="no">
+                        <input type="submit" value="Send it">
+                      </form>
+                    </div>
+                    <!-- -->
+            </div>
+            <!-- Pagina productos -->
+            <div class="container-fluid" id="pagina-productos" style="display: none;">
+                <div class="row" id="productos"></div>
+            </div>
+            <!-- Pagina de Clientes-->
+            <div class="container-fluid" id="pagina-clientes" style="display: none;">
+                <h1>Clientes</h1>
+            </div>
+            <!-- Pagina pedidos-->
+            <div class="container-fluid" id="pagina-pedidos" style="display: none;">
+                <h1>Pedidos</h1>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>    
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
-    <script>
-    const { ipcRenderer } = require('electron');
-    const productos = document.querySelector('#productos');
+
+
+
+    <!-- -->
+
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        #sidebar-wrapper {
+            min-height: 100vh;
+            margin-left: -15rem;
+            -webkit-transition: margin .25s ease-out;
+            -moz-transition: margin .25s ease-out;
+            -o-transition: margin .25s ease-out;
+            transition: margin .25s ease-out;
+        }
+
+        #sidebar-wrapper .sidebar-heading {
+            padding: 0.875rem 1.25rem;
+            font-size: 1.2rem;
+        }
+
+        #sidebar-wrapper .list-group {
+            width: 15rem;
+        }
+
+        #page-content-wrapper {
+            min-width: 100vw;
+        }
+
+        #wrapper.toggled #sidebar-wrapper {
+            margin-left: 0;
+        }
+
+
+        @media (min-width: 768px) {
+            #sidebar-wrapper {
+                margin-left: 0;
+            }
+
+            #page-content-wrapper {
+                min-width: 0;
+                width: 100%;
+            }
+
+            #wrapper.toggled #sidebar-wrapper {
+                margin-left: -15rem;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+        <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script type="javascript" src="js/form.js"></script>
+        <script>
+        const menuO = document.querySelector('#menu-toggle');
+        menuO.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            document.querySelector('#wrapper').classList.toggle("toggled");
+        });
+
+        const btnSalir = document.querySelector('#btnSalir');
+
+
+
+        const { ipcRenderer } = require('electron');
+
+        const electron = require('electron');
+
+        const app = electron.app || electron.remote.app;
+
+        const Swal = require('sweetalert2');
+        const fs = require('fs');
+        const path = require('path');
+        const mysql = require('mysql');
+
+
+        /* Conexión MySQL */
+
+        var connection2 = mysql.createConnection({
+            host: 'sql177.main-hosting.eu',
+            user: 'u852560018_electronApp',
+            password: 'prueba123',
+            database: 'u852560018_electronApp'
+        });
+
+        var pool = mysql.createPool({
+            connectionLimit: 10,
+            host: 'sql177.main-hosting.eu',
+            user: 'u852560018_electronApp',
+            password: 'prueba123',
+            database: 'u852560018_electronApp'
+        });
+
+        //Seccion de sidebar.
+        const pestanaEscritorio = document.getElementById('sidebar-escritorio');
+        const pestanaConfiguracion = document.getElementById('sidebar-configuracion');
+        const pestanaProductos = document.getElementById('sidebar-productos');
+        const pestanaClientes = document.getElementById('sidebar-clientes');
+        const pestanaPedidos = document.getElementById('sidebar-pedidos');
+
+        var currentPage = "escritorio";
+        function getCurrentPage() {
+        }
+
+        //Paginas
+        const primeraPagina = document.getElementById('pagina-escritorio');
+        const configuracionPagina = document.getElementById('pagina-configuracion');
+        const productosPagina = document.getElementById('pagina-productos');
+        const clientesPagina = document.getElementById('pagina-clientes');
+        const pedidosPagina = document.getElementById('pagina-pedidos');
+        primeraPagina.style.display = "block";
+        //
+
+        //Botones
+        pestanaProductos.addEventListener('click', () => {
+            var str = "pagina-" + currentPage;
+            document.getElementById(str).style.display = "none";
+            productosPagina.style.display = "block";
+            currentPage = "productos";
+        })
+
+        pestanaEscritorio.addEventListener('click', () => {
+            var str = "pagina-" + currentPage;
+            document.getElementById(str).style.display = "none";
+            primeraPagina.style.display = "block";
+            currentPage = "escritorio";
+        })
+
+        pestanaConfiguracion.addEventListener('click', () => {
+            var str = "pagina-" + currentPage;
+            document.getElementById(str).style.display = "none";
+            configuracionPagina.style.display = "block";
+            currentPage = "configuracion";
+        })
+
+        pestanaClientes.addEventListener('click', () => {
+            var str = "pagina-" + currentPage;
+            document.getElementById(str).style.display = "none";
+            clientesPagina.style.display = "block";
+            currentPage = "clientes";
+        })
+
+        pestanaPedidos.addEventListener('click', () => {
+            var str = "pagina-" + currentPage;
+            document.getElementById(str).style.display = "none";
+            pedidosPagina.style.display = "block";
+            currentPage = "pedidos";
+        })
+        //
+
+        function cerrarBD() {
+            setTimeout(function () {
+                connection.end();
+            },
+                2000)
+        }
+        /*
+        function conectarBD(){
+            pool.connect(function (err) {
+                if (err) {
+                    console.error('error connecting: ' + err.stack);
+                    return;
+                }
+
+                console.log('connected as id ' + connection.threadId);
+                //cerrarBD();
+            });
+        }*/
+
+        const btnConnect = document.querySelector('#connectDB');
+        const btnCrear = document.querySelector('#crearProductoBtn');
+
+        var nombreTest = 'Hamburguesa';
+        var precioTest = '250';
+        var descripcionTest = 'La mas rica de todas';
+
+
+
+        const productos = document.querySelector('#productos');
+
+        btnSalir.addEventListener('click', () => {
+
+            Swal.fire({
+                title: '¿Estas seguro de salir de la aplicación?',
+                text: "Todos los cambios serán guardados.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, salir.'
+            }).then((result) => {
+                if (result.value) {
+                    ipcRenderer.send('app:exit');
+                }
+            })
+
+        });
 
 
         ipcRenderer.on('products:remove', (e) => {
-            productos.innerHTML = "";
-            console.log("Removidos todos los productos");
+
+            Swal.fire({
+                title: '¿Estas seguro de borrar todos los productos?',
+                text: "¡No hay vuelta atrás!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, lo borraré!'
+            }).then((result) => {
+                if (result.value) {
+                    Swal.fire(
+                        'Borrado!',
+                        'Todos los productos fueron eliminados.',
+                        'success'
+                    )
+                    productos.innerHTML = "";
+                    console.log("Removidos todos los productos");
+                }
+            })
         })
 
         const botonCrear = document.querySelector('#createNew');
 
-        botonCrear.addEventListener('click', ()=>{
+        botonCrear.addEventListener('click', () => {
             ipcRenderer.send('tab:createNew');
         });
 
-    ipcRenderer.on('product:new', (e, newProduct) => {
-       const newProductTemplate = `
-       <div class="col-xs-4 p-2">
-            <div class="card text-center">
-                <div class="card-header">
-                    <h5 class="card-title">${newProduct.nombre}</h5>    
-                </div>
-                <div class="card-body">
-                    ${newProduct.desc}
-                    </br>
-                    </hr>
-                    $ ${newProduct.precio}  
-                </div>
-                <div class="card-footer">
-                        <button class="btn btn-danger btn-sm">
-                            ELIMINAR
-                        </button>
-                </div>
-            </div>
-        </div>
-       `; 
-       productos.innerHTML += newProductTemplate;
-       const btns = document.querySelectorAll('.btn.btn-danger');
-        btns.forEach(btn => {
-            btn.addEventListener('click', e =>{
-                e.target.parentElement.parentElement.parentElement.remove();
+        /* document.onload( () =>{
+ 
+             fs.readFile()
+         })
+         */
+
+        ipcRenderer.on('product:new', (e, newProduct) => {
+            /*
+            if(connection.state === 'disconnected'){
+            return respond(null, { status: 'fail', message: 'server down, reconnecting'});
+            }
+            else{
+                console.log("Error d nuevo lrpm");
+                conectarBD();
+            }
+            */
+            var sql = "INSERT INTO productos (nombre, precio, descripcion) VALUES (?, ?, ?)";
+            var inserts = [newProduct.nombre, newProduct.precio, newProduct.desc];
+            sql = mysql.format(sql, inserts);
+            /*
+            connection.query(sql, { title: 'test' }, function (error, results, fields) {
+                if (error) throw error;
+                console.log("Nuevo producto insertado, ID: ",results.insertId);
             });
+            */
+
+
+            //
+            pool.getConnection(function (err, connection) {
+                if (err) throw err; // not connected!
+                connection.query(sql, function (error, results, fields) {
+                    console.log("Nuevo producto insertado, ID: ", results.insertId);
+                    const newProductTemplate = `
+             <div class="col-xs-4 p-2" id="${results.insertId}" name="${newProduct.nombre}">
+                  <div class="card text-center">
+                      <div class="card-header">
+                          <h5 class="card-title">${newProduct.nombre}</h5>    
+                      </div>
+                      <div class="card-body">
+                          ${newProduct.desc}
+                          </br>
+                          </hr>
+                          $ ${newProduct.precio}  
+                      </div>
+                      <div class="card-footer">
+                                <button class="btn btn-danger eliminarpr btn-sm" onclick="mostrarDialogBorrarProducto(${results.insertId}, 0)">
+                                  ELIMINAR
+                              </button>
+                      </div>
+                  </div>
+              </div>
+             `;
+                    productos.innerHTML += newProductTemplate;
+
+                    // When done with the connection, release it.
+                    connection.release();
+
+                    // Handle error after the release.
+                    if (error) throw error;
+
+                    // Don't use the connection here, it has been returned to the pool.
+                });
+            });
+            //
+            //cerrarBD();
+
+            const location = path.join(__dirname, '../../data/products/');
         });
-    });
-    
+
+
+        function borrarProductos(uno, dos) {
+            if (dos === 0) {
+                const elementoPadre = document.getElementById(uno);
+                //console.log("Se deberia eliminar el producto ",uno);
+                removeElement(uno);
+                console.log("se puso la funcion borrarProductos(" + uno + "," + dos + ");");
+                //Asd
+                var sql = "DELETE FROM productos WHERE id = ?";
+                //conectarBD();
+                var inserts = [uno];
+                sql = mysql.format(sql, inserts);
+
+
+                /*
+                connection.query(sql, { title: 'test' }, function (error, results, fields) {
+                    if (error) throw error;
+                    console.log("Se deberia borrar de la DB el producto ", uno);
+                }); */
+                //asd
+                pool.getConnection(function (err, connection) {
+                    if (err) throw err; // not connected!
+                    connection.query(sql, function (error, results, fields) {
+                        console.log("Se deberia borrar de la DB el producto  ", uno);
+                        // When done with the connection, release it.
+                        connection.release();
+
+                        // Handle error after the release.
+                        if (error) throw error;
+
+                        // Don't use the connection here, it has been returned to the pool.
+                    });
+                });
+                //fin pool
+
+            }
+            else {
+
+            }
+        }
+        function removeElement(elementId) {
+            // Removes an element from the document
+            var element = document.getElementById(elementId);
+            element.parentNode.removeChild(element);
+        }
+
+        function mostrarDialogBorrarProducto(var1, var2) {
+            console.log("hola");
+
+            var botonAhora = document.getElementById(var1);
+            var nombreProductoD = botonAhora.getAttribute('name');
+            botonAhora.addEventListener('click', () => {
+
+                var str1 = ` <b>${nombreProductoD}</b> `;
+                Swal.fire({
+                    //Volver dello
+                    title: '¿Estas seguro de borrar' + str1 + '?',
+                    text: "¡No hay vuelta atrás!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, lo borraré!'
+                }).then((result) => {
+                    if (result.value) {
+                        borrarProductos(var1, var2);
+                        Swal.fire(
+                            'Borrado!',
+                            'Producto eliminado con éxito.',
+                            'success'
+                        )
+                        //e.target.parentElement.parentElement.parentElement.remove();
+                    }
+                })
+            })
+        }
+
+        function mostrarProductosIndex() {
+            var sql = "SELECT * FROM productos";
+            //Nueva Shit
+            pool.getConnection(function (err, connection) {
+                if (err) throw err; // not connected!
+                connection.query(sql, function (error, results, fields) {
+                    //console.log("Se deberia borrar de la DB el producto  ", uno);
+                    //Empezamos el for, para mostrar cada producto.
+                    for (var i = 0; i < results.length; i++) {
+                        console.log("Id " + results[i].id + " cargado.");
+                        productos.innerHTML += `
+                    <div class="col-xs-4 p-2" id="${results[i].id}" name="${results[i].nombre}">
+                  <div class="card text-center">
+                      <div class="card-header">
+                          <h5 class="card-title">${results[i].nombre}</h5>    
+                      </div>
+                      <div class="card-body">
+                          ${results[i].descripcion}
+                          </br>
+                          </hr>
+                          $ ${results[i].precio}  
+                      </div>
+                      <div class="card-footer">
+                              <button class="btn btn-danger eliminarpr btn-sm" onclick="mostrarDialogBorrarProducto(${results[i].id}, 0)">
+                                  ELIMINAR
+                              </button>
+                      </div>
+                        </div>
+                    </div>
+                    `;
+                    }
+                    connection.release();
+                    if (error) throw error;
+                });
+            });
+            //
+
+        }
+
+        window.onload = function () {
+
+            const productosCantidad = 0;
+            var loca = path.join(__dirname, '../../data/products/');
+            ipcRenderer.on('productCant', (e, data) => {
+                productosCantidad = data;
+            })
+            mostrarProductosIndex();
+            //fin onwindowsLoad()
+        }
+
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
+
 </html>

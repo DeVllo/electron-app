@@ -11,8 +11,8 @@ function createNewProductWindow(){
         webPreferences:{
             nodeIntegration: true
         },
-        width: 400,
-        height: 330,
+        width: 500,
+        height: 430,
         title: 'Vainilla -> Crear nuevo producto'
     });
 
@@ -32,6 +32,10 @@ ipcMain.on('product:new', (e, newProduct) => {
 ipcMain.on('tab:createNew', (e) => {
     createNewProductWindow();
 });
+
+ipcMain.on('app:exit', (e)=>{
+    app.quit();
+})
 
 
 

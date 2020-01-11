@@ -1,0 +1,21 @@
+{
+  "productos": [
+    {
+      "name": "Nombresillo",
+      "edad": "15 años",
+      "id": 1578541987316
+    },
+    {
+      "name": "Pinguito",
+      "precio": "4500",
+      "descripcion": "chiquito, poderoso",
+      "id": 1578542116356
+    },
+    {
+      "name": "Otroproducto",
+      "precio": "800",
+      "descripcion": "Baratito, pero otro",
+      "id": 1578542128835
+    }
+  ]
+}

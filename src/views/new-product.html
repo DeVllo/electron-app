@@ -17,16 +17,17 @@
             <input type="text" name="" id="precio" class="form-control" placeholder="Precio">
         </div>
         <div class="form-group">
-            <input type="text" name="" id="descripcion" class="form-control" placheholder="Descripcion">
+            <input type="text" name="" id="descripcion" class="form-control" placeholder="Descripcion breve del producto">
         </div>
         <div class="form-group">
-            <button class="btn btn-primary btn-block" id="descripcion" placheolder="Descripcion breve">Aceptar</button>
+            <button class="btn btn-primary btn-block" id="descripcion">Aceptar</button>
         </div>
     </form>
 
     <script>
 
         const { ipcRenderer } = require('electron');
+        const swal = require('sweetalert2');
 
     const form = document.querySelector('form');
     form.addEventListener('submit', e =>{
@@ -38,15 +39,23 @@
         const precioProducto = document.querySelector('#precio').value;
         const descripcionProducto =  document.querySelector('#descripcion').value;
 
-        console.log(nombreProducto, precioProducto, descripcionProducto);
+        //console.log(nombreProducto, precioProducto, descripcionProducto);
 
-        const newProduct = {
+        if(nombreProducto == "" || precioProducto == "" || descripcionProducto == ""){
+            swal.fire("Oops!", "¡Faltan datos!", "error");
+        }
+        else{
+        
+            const newProduct = {
             nombre: nombreProducto,
             precio: precioProducto,
             desc: descripcionProducto
         };
-
         ipcRenderer.send('product:new', newProduct);
+
+
+            }
+        //
     })
     </script>
 

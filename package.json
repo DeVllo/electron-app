@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^7.1.7"
+    "electron": "^7.1.7",
+    "electron-db": "^0.15.3",
+    "mysql": "github:mysqljs/mysql",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^9.5.4"
   }
 }
